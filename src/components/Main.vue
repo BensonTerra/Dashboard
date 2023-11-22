@@ -5,6 +5,7 @@
     <label for="location">Digite o nome da cidade:</label>
     <input type="text" id="location" v-model="city" />
     <button @click="getWeather">Obter Previsão do Tempo</button>
+    <button @click="getMyLocal">Obter minha localização</button>
 
     <div v-if="weatherData">
       <h2>Previsão do Tempo para {{ locationData.country }}</h2>
@@ -65,6 +66,17 @@ export default {
         .catch(error => {
           console.error('Error fetching weather data:', error);
         });
+    },
+    getMyLocal() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.showLocal);
+      } 
+      else { 
+        console.log("Geolocation is not supported by this browser.")
+      }
+    },
+    showLocal(position) {
+      console.log(position)
     }
   },
 
