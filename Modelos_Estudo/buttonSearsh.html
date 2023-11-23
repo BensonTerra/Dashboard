@@ -88,7 +88,7 @@
                 listItem.onclick = function() {
                     // Ao clicar em um resultado, ajusta o mapa para exibir as coordenadas do resultado e define automaticamente o zoom
                     var bounds = [[result.boundingbox[0], result.boundingbox[2]], [result.boundingbox[1], result.boundingbox[3]]];
-                    map.fitBounds(bounds);
+                    map.fitBounds(bounds);console.log(bounds);
                     // Remove o waypoint anterior, se existir
                     if (currentWaypoint) {
                         map.removeLayer(currentWaypoint);
@@ -111,6 +111,8 @@
 
             // Adiciona um pop-up ao waypoint
             currentWaypoint.bindPopup('Waypoint: ' + lat + ', ' + lng);
+            let zoom = 
+            map.setView([lat - 10,lng], 2);
         }
 
         document.getElementById('search').addEventListener("change", submitSearch)

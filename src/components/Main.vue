@@ -72,11 +72,11 @@ export default {
         navigator.geolocation.getCurrentPosition(this.showLocal);
       } 
       else { 
-        console.log("Geolocation is not supported by this browser.")
+        console.table("Geolocation is not supported by this browser.")
       }
     },
     showLocal(position) {
-      console.log(position)
+      console.log(position.coords.latitude, position.coords.longitude)
     }
   },
 
