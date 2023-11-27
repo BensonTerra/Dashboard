@@ -77,6 +77,7 @@ export default {
     },
     showLocal(position) {
       console.log(position.coords.latitude, position.coords.longitude)
+      this.city = `${position.coords.latitude},` + `${position.coords.longitude}`
     }
   },
 
